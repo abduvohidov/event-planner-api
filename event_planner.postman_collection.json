@@ -1,0 +1,333 @@
+{
+	"info": {
+		"_postman_id": "5936d9a6-ea9d-4a6d-8da0-72e97e796df7",
+		"name": "Event Planner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28558820",
+		"_collection_link": "https://speeding-space-341953.postman.co/workspace/My-Workspace~3662f73f-cf47-4e58-8c96-af50addba72a/collection/28558820-5936d9a6-ea9d-4a6d-8da0-72e97e796df7?action=share&source=collection_link&creator=28558820"
+	},
+	"item": [
+		{
+			"name": "events",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"event\",\n    \"location\": \"location event - 4\",\n    \"dateStart\": \"01-02-2024\",\n    \"dateEnd\": \"03-02-2024\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/events/create",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"events",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"event-updated\",\n    \"location\": \"location event - updated\",\n    \"dateStart\": \"01-02-2024\",\n    \"dateEnd\": \"03-02-2024\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/events/update/4",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"events",
+								"update",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/events/remove/3",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"events",
+								"remove",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/events/all",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"events",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByLocation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/events/location/locationevent-2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"events",
+								"location",
+								"locationevent-2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/events/location/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"events",
+								"location",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "attendees",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"event-3\",\n    \"email\": \"a1a@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/attandees/create",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"attandees",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"event-uipdated\",\n    \"email\": \"aaa@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/attandees/update/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"attandees",
+								"update",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/attandees/remove/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"attandees",
+								"remove",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/attandees/all",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"attandees",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/attandees/id/3",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"attandees",
+								"id",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByEmail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/attandees/email/aaaa@gmail.com",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"attandees",
+								"email",
+								"aaaa@gmail.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:9000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
