@@ -6,8 +6,10 @@ import { TYPES } from './types';
 import { json } from 'body-parser';
 import { IConfigService } from './config/config.service.interface';
 import { IExeptionFilter } from './errors/exeption.filter.interface';
-import { UserController, UsersRepository } from './modules/users';
 import 'reflect-metadata';
+import { PrismaClient } from '@prisma/client';
+import { IEventRepository } from './modules/events/repositories/events.repository.interface';
+import { EventController } from './modules/events/controllers/event.controller';
 
 @injectable()
 export class App {
@@ -19,8 +21,9 @@ export class App {
 		@inject(TYPES.ILogger) private logger: ILogger,
 		@inject(TYPES.ExeptionFilter) private exeptionFilter: IExeptionFilter,
 		@inject(TYPES.ConfigService) private configService: IConfigService,
-		@inject(TYPES.UserController) private userController: UserController,
-		@inject(TYPES.UsersRepository) private usersRepository: UsersRepository,
+		@inject(TYPES.PrismaClient) private prismaClient: PrismaClient,
+		@inject(TYPES.EventController) private eventController: EventController,
+		@inject(TYPES.EventRepository) private eventRepository: IEventRepository,
 	) {
 		this.app = express();
 		this.port = this.configService.get('PORT') || 9000;
@@ -31,7 +34,7 @@ export class App {
 	}
 
 	useRoutes(): void {
-		this.app.use('/users', this.userController.router);
+		this.app.use('/events', this.eventController.router);
 	}
 
 	useExeptionFilters(): void {
@@ -42,7 +45,6 @@ export class App {
 		this.useMiddleware();
 		this.useRoutes();
 		this.useExeptionFilters();
-		// await this.mongoService.connect();
 		this.server = this.app.listen(this.port);
 		this.logger.log(`Сервер запущен на http://localhost:${this.port}`);
 	}
