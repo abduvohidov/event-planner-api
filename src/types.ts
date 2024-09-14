@@ -9,4 +9,9 @@ export const TYPES = {
 	EventService: Symbol.for('EventService'),
 	EventModel: Symbol.for('EventModel'),
 	EventRepository: Symbol.for('EventRepository'),
+
+	AttandeeController: Symbol.for('AttandeeController'),
+	AttandeeService: Symbol.for('AttandeeService'),
+	AttandeeModel: Symbol.for('AttandeeModel'),
+	AttandeeRepository: Symbol.for('AttandeeRepository'),
 };

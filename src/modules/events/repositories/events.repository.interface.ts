@@ -1,4 +1,3 @@
-import { EventUpdateDto } from '../dto/event-update.dto';
 import { IEventEntity } from '../models/event.entity.interface';
 
 export interface IEventRepository {

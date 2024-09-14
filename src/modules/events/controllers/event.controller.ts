@@ -125,11 +125,11 @@ export class EventController extends BaseController implements IEventController 
 		const { id } = req.params;
 		const result = await this.eventService.remove(Number(id));
 		if (!result) {
-			return next(new HTTPError(422, 'Нет такого продукта'));
+			return next(new HTTPError(422, 'Нет такого мероприятия'));
 		}
 		this.ok(res, {
 			status: true,
-			message: 'Продукт успешно удалено',
+			message: 'Мероприятия успешно удалено',
 		});
 	}
 }

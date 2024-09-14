@@ -16,6 +16,14 @@ import {
 	IEventRepository,
 	IEventService,
 } from './modules/events';
+import {
+	AttandeeController,
+	AttandeeRepository,
+	AttandeesService,
+	IAttandeeController,
+	IAttandeeRepository,
+	IAttandeeService,
+} from './modules/attendees';
 
 export interface IBootstrapReturn {
 	appContainer: Container;
@@ -31,6 +39,10 @@ export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
 	bind<IEventRepository>(TYPES.EventRepository).to(EventRepository).inSingletonScope();
 	bind<IEventController>(TYPES.EventController).to(EventController).inSingletonScope();
 	bind<IEventService>(TYPES.EventService).to(EventsService);
+
+	bind<IAttandeeRepository>(TYPES.AttandeeRepository).to(AttandeeRepository).inSingletonScope();
+	bind<IAttandeeController>(TYPES.AttandeeController).to(AttandeeController).inSingletonScope();
+	bind<IAttandeeService>(TYPES.AttandeeService).to(AttandeesService);
 
 	bind<App>(TYPES.Application).to(App);
 });

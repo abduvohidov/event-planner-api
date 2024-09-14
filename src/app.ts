@@ -9,6 +9,7 @@ import { IExeptionFilter } from './errors/exeption.filter.interface';
 import { PrismaClient } from '@prisma/client';
 import 'reflect-metadata';
 import { EventController, IEventRepository } from './modules/events';
+import { AttandeeController, IAttandeeRepository } from './modules/attendees';
 
 @injectable()
 export class App {
@@ -23,6 +24,8 @@ export class App {
 		@inject(TYPES.PrismaClient) private prismaClient: PrismaClient,
 		@inject(TYPES.EventController) private eventController: EventController,
 		@inject(TYPES.EventRepository) private eventRepository: IEventRepository,
+		@inject(TYPES.AttandeeController) private attandeeController: AttandeeController,
+		@inject(TYPES.AttandeeRepository) private attandeeRepository: IAttandeeRepository,
 	) {
 		this.app = express();
 		this.port = this.configService.get('PORT') || 9000;
@@ -34,6 +37,7 @@ export class App {
 
 	useRoutes(): void {
 		this.app.use('/events', this.eventController.router);
+		this.app.use('/attandees', this.attandeeController.router);
 	}
 
 	useExeptionFilters(): void {
