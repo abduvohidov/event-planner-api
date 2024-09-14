@@ -1,15 +1,12 @@
 import { inject, injectable } from 'inversify';
 import { IUserRepository } from './users.repository.interface';
 import { TYPES } from '../../../types';
-import { MongoService } from '../../../database';
 import { User } from '../models/user.entity';
 import { IUserModel } from '../models/user.model.interface';
 import { userModel } from '../models/user.model';
 
 @injectable()
 export class UsersRepository implements IUserRepository {
-	constructor(@inject(TYPES.MongoService) private mongoService: MongoService) {}
-
 	async create({ email, name, password }: User): Promise<IUserModel> {
 		const newUser = await userModel.create({
 			name,
