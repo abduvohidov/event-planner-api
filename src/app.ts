@@ -6,10 +6,9 @@ import { TYPES } from './types';
 import { json } from 'body-parser';
 import { IConfigService } from './config/config.service.interface';
 import { IExeptionFilter } from './errors/exeption.filter.interface';
-import 'reflect-metadata';
 import { PrismaClient } from '@prisma/client';
-import { IEventRepository } from './modules/events/repositories/events.repository.interface';
-import { EventController } from './modules/events/controllers/event.controller';
+import 'reflect-metadata';
+import { EventController, IEventRepository } from './modules/events';
 
 @injectable()
 export class App {

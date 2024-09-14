@@ -32,11 +32,11 @@ export class EventController extends BaseController implements IEventController 
 	): Promise<void> {
 		const result = await this.eventService.createEvent(body);
 		if (!result) {
-			return next(new HTTPError(422, 'Такой пользователь уже существует'));
+			return next(new HTTPError(422, 'Такой мероприятия уже существует'));
 		}
 		this.ok(res, {
 			status: true,
-			message: 'Успешно прошли регистрацию',
+			message: 'Успешно',
 			data: {
 				result,
 			},

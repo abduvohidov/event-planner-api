@@ -7,13 +7,15 @@ import { IExeptionFilter } from './errors/exeption.filter.interface';
 import { ILogger } from './logger/logger.interface';
 import { LoggerService } from './logger/logger.service';
 import { TYPES } from './types';
-import { IEventRepository } from './modules/events/repositories/events.repository.interface';
-import { EventRepository } from './modules/events/repositories/events.repository';
 import { PrismaClient } from '@prisma/client';
-import { EventController } from './modules/events/controllers/event.controller';
-import { IEventController } from './modules/events/controllers/event.controller.interface';
-import { IEventService } from './modules/events/services/events.service.interface';
-import { EventsService } from './modules/events/services/events.service';
+import {
+	EventController,
+	EventRepository,
+	EventsService,
+	IEventController,
+	IEventRepository,
+	IEventService,
+} from './modules/events';
 
 export interface IBootstrapReturn {
 	appContainer: Container;
