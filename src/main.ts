@@ -24,6 +24,15 @@ import {
 	IAttandeeRepository,
 	IAttandeeService,
 } from './modules/attendees';
+import {
+	IUserController,
+	IUserService,
+	IUsersRepository,
+	UserController,
+	UserService,
+	UsersRepository,
+} from './modules/users';
+import { PrismaService } from './database/prisma.service';
 
 export interface IBootstrapReturn {
 	appContainer: Container;
@@ -35,6 +44,11 @@ export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
 	bind<IExeptionFilter>(TYPES.ExeptionFilter).to(ExeptionFilter);
 	bind<IConfigService>(TYPES.ConfigService).to(ConfigService).inSingletonScope();
 	bind<PrismaClient>(TYPES.PrismaClient).toConstantValue(new PrismaClient());
+	bind<PrismaService>(TYPES.PrismaService).to(PrismaService);
+
+	bind<IUsersRepository>(TYPES.UserRepository).to(UsersRepository).inSingletonScope();
+	bind<IUserController>(TYPES.UserController).to(UserController).inSingletonScope();
+	bind<IUserService>(TYPES.UserService).to(UserService);
 
 	bind<IEventRepository>(TYPES.EventRepository).to(EventRepository).inSingletonScope();
 	bind<IEventController>(TYPES.EventController).to(EventController).inSingletonScope();

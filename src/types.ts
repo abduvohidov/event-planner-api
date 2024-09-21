@@ -4,6 +4,12 @@ export const TYPES = {
 	ExeptionFilter: Symbol.for('ExeptionFilter'),
 	ConfigService: Symbol.for('ConfigService'),
 	PrismaClient: Symbol.for('PrismaClient'),
+	PrismaService: Symbol.for('PrismaService'),
+
+	UserController: Symbol.for('UserController'),
+	UserService: Symbol.for('UserService'),
+	UserModel: Symbol.for('UserModel'),
+	UserRepository: Symbol.for('UserRepository'),
 
 	EventController: Symbol.for('EventController'),
 	EventService: Symbol.for('EventService'),

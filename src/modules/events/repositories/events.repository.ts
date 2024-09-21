@@ -2,7 +2,6 @@ import { inject, injectable } from 'inversify';
 import { PrismaClient } from '@prisma/client';
 import { IEventRepository } from './events.repository.interface';
 import { TYPES } from '../../../types';
-
 import { IEventEntity } from '../models/event.entity.interface';
 import { EventUpdateDto } from '../dto/event-update.dto';
 

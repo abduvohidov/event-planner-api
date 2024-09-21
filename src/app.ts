@@ -10,6 +10,9 @@ import { PrismaClient } from '@prisma/client';
 import 'reflect-metadata';
 import { EventController, IEventRepository } from './modules/events';
 import { AttandeeController, IAttandeeRepository } from './modules/attendees';
+import { IUsersRepository, UserController } from './modules/users';
+import { AuthMiddleware } from './common/auth.middleware';
+import { PrismaService } from './database/prisma.service';
 
 @injectable()
 export class App {
@@ -22,6 +25,9 @@ export class App {
 		@inject(TYPES.ExeptionFilter) private exeptionFilter: IExeptionFilter,
 		@inject(TYPES.ConfigService) private configService: IConfigService,
 		@inject(TYPES.PrismaClient) private prismaClient: PrismaClient,
+		@inject(TYPES.PrismaService) private prismaService: PrismaService,
+		@inject(TYPES.UserController) private userController: UserController,
+		@inject(TYPES.UserRepository) private userRepository: IUsersRepository,
 		@inject(TYPES.EventController) private eventController: EventController,
 		@inject(TYPES.EventRepository) private eventRepository: IEventRepository,
 		@inject(TYPES.AttandeeController) private attandeeController: AttandeeController,
@@ -33,11 +39,14 @@ export class App {
 
 	useMiddleware(): void {
 		this.app.use(json());
+		const authMiddleware = new AuthMiddleware(this.configService.get('SECRET'));
+		this.app.use(authMiddleware.execute.bind(authMiddleware));
 	}
 
 	useRoutes(): void {
 		this.app.use('/events', this.eventController.router);
 		this.app.use('/attandees', this.attandeeController.router);
+		this.app.use('/users', this.userController.router);
 	}
 
 	useExeptionFilters(): void {
